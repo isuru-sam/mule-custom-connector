@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:activemq="http://www.mulesoft.org/schema/mule/activemq"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/activemq http://www.mulesoft.org/schema/mule/activemq/current/mule-activemq.xsd">
+
+    <activemq:config name="config" configId="configId">
+        <activemq:connection requiredParameter="aValue" />
+    </activemq:config>
+
+    <flow name="sayHiFlow">
+        <activemq:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <activemq:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
